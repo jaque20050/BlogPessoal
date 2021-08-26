@@ -1,5 +1,6 @@
 package org.generation.blogPessoal.service;
 import java.nio.charset.Charset;
+
 import java.util.Optional;
 
 import org.apache.commons.codec.binary.Base64;

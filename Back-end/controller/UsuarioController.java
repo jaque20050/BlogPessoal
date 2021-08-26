@@ -21,19 +21,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/usuario")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
-	
-	
+
 	@Autowired
 	private UsuarioService usuarioService;
-	
-	@PutMapping("/logar")//Esta funcionando
-	public ResponseEntity<UsuarioLogin> Autentication(@RequestBody Optional<UsuarioLogin> user){
+
+	@PutMapping("/logar") // Esta funcionando
+	public ResponseEntity<UsuarioLogin> Autentication(@RequestBody Optional<UsuarioLogin> user) {
 		return usuarioService.Logar(user).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
-	@PostMapping("/cadastrar")//Esta funcionando
-	public ResponseEntity<Usuario> Post(@RequestBody Usuario usuario){
-		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(usuarioService.CadastrarUsuario(usuario));
-   }
+
+	@PostMapping("/cadastrar") // Esta funcionando
+	public ResponseEntity<Usuario> Post(@RequestBody Usuario usuario) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.CadastrarUsuario(usuario));
+	}
 }

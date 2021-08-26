@@ -24,6 +24,7 @@ public class PostagemController {
 	@Autowired//garante que todos serviços dessa interface repository seja acessado a partir do  controller
 	private PostagemRepository repository;
 	
+	
 	@GetMapping//expor para API que se trata de um GET
 	public ResponseEntity<List<Postagem>> GetAll(){
 		return ResponseEntity.ok(repository.findAll());
